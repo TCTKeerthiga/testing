@@ -8,21 +8,25 @@ import org.hibernate.validator.constraints.Length;
  */
 public class RepresentationAPI {
     private int id;
-    @Length(max = 3)
-    private String value;
+    @Length(max = 10)
+    private String content;
+
+    public RepresentationAPI() {
+
+    }
 
     @JsonProperty
-    public long getId() {
+    public int getId() {
         return id;
     }
+
     @JsonProperty
     public String getContent() {
-        return value;
+        return content;
     }
-    public RepresentationAPI(int id, String value) {
+
+    public RepresentationAPI(int id, String content) {
         this.id = id;
-        this.value = value;
+        this.content = content;
     }
-
-
 }

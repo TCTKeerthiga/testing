@@ -1,31 +1,31 @@
 package com.example.mytest;
 
 import io.dropwizard.Configuration;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import org.hibernate.validator.constraints.*;
-import javax.validation.constraints.*;
+import org.hibernate.validator.constraints.NotEmpty;
+
 
 public class MyTestConfiguration extends Configuration {
+
     @NotEmpty
     private String name;
-    @NotEmpty
-    private String adrs = "mdu";
 
-    @JsonProperty
+    @NotEmpty
+    private String defaultAddress = "Madurai";
+
     public String getName() {
         return name;
     }
-    @JsonProperty
+
     public void setName(String name) {
         this.name = name;
     }
-    @JsonProperty
-    public String getAdrs() {
-        return adrs;
+
+    public String getDefaultAddress() {
+        return defaultAddress;
     }
-    @JsonProperty
-    public void setAdrs(String adrs) {
-        this.adrs = adrs;
+
+    public void setDefaultAddress(String defaultAddress) {
+        this.defaultAddress = defaultAddress;
     }
 }
 

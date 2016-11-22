@@ -14,25 +14,21 @@ public class MyTestApplication extends Application<MyTestConfiguration> {
 
     @Override
     public String getName() {
-        return "MyTest";
+        return "my-test";
     }
 
     @Override
     public void initialize(final Bootstrap<MyTestConfiguration> bootstrap) {
         // TODO: application initialization
     }
-
     @Override
     public void run(final MyTestConfiguration configuration,
                     final Environment environment) {
-        final MyTestResource resource = new MyTestResource(
-                configuration.getName(),
-                configuration.getAdrs()
-        );
-        final TemplateHealthCheck healthCheck =
-                new TemplateHealthCheck(configuration.getName());
+        final MyTestResource resource = new MyTestResource(configuration.getName());
+        
+        final TemplateHealthCheck healthCheck = new TemplateHealthCheck(configuration.getName());
+        
         environment.healthChecks().register("name", healthCheck);
         environment.jersey().register(resource);
     }
-
 }

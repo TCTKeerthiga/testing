@@ -14,7 +14,7 @@ public class TemplateHealthCheck extends HealthCheck{
 
     @Override
     protected Result check() throws Exception {
-        final String name = String.format(template, "TEST");
+        final String name = String.format(template,"TEST");
         if (!name.contains("TEST")) {
             return Result.unhealthy("template doesn't include a name");
         }
